@@ -25,6 +25,8 @@ def add_noise(img):
 
 # calculate Peak signal-to-noise ratio (PSNR)
 def cal_psnr(original_img, noisy_image):
+    original_img = original_img.astype(np.float64)
+    noisy_image = noisy_image.astype(np.float64)
     # calculate the mean square error between the original and noisy image
     mse = np.mean((original_img - noisy_image) ** 2)
     max_pixel_value = 255  # maximum possible pixel value
