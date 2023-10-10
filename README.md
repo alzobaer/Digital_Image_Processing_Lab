@@ -7,10 +7,14 @@ This repository contains the code and documentation for the Digital Image Proces
 1. **Decrease Spatial Resolution**
    - Decrease the spatial resolution of a 512x512 grayscale image by half every time.
    - Observe the changes when displaying the image in the same window size.
+   #### Sample Output
+      <img src="./images/README/1a.png">
 
 2. **Decrease Intensity Resolution**
    - Decrease the intensity level resolution by one bit up to reach its binary format.
    - Observe the changes when displaying the image in the same window size.
+   #### Sample Output
+      <img src="./images/README/1b.png">
 
 3. **Histogram and Thresholding**
    - Illustrate the histogram of the image.

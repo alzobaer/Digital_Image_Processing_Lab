@@ -29,7 +29,6 @@ for k in range(8):
 
     # Increase the down-sampling rate when any other key is pressed
     f = f * 2
-
 # Arrange the subplots neatly
 plt.tight_layout()
 # Display the plot
