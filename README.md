@@ -19,23 +19,33 @@ This repository contains the code and documentation for the Digital Image Proces
 3. **Histogram and Thresholding**
    - Illustrate the histogram of the image.
    - Perform single threshold segmentation based on the histogram.
+   #### Sample Output
+      <img src="./images/README/1c.png">
 
 ## Task 2: Brightness Enhancement
 
 1. **Brightness Enhancement**
    - Perform brightness enhancement on a specific range of gray levels.
    - Observe the results.
+   #### Sample Output
+      <img src="./images/README/2a.png">
 
 2. **Transforms Comparison**
    - Differentiate the results of power law transform and inverse logarithmic transform.
+   #### Sample Output
+      <img src="./images/README/2b.png">
 
 3. **Difference Image**
    - Find the difference image between the original and the image obtained by keeping the last three bits (most significant bits, MSB).
+   #### Sample Output
+      <img src="./images/README/2c.png">
 
 ## Task 3: Noise Suppression
 
 1. **Salt & Pepper Noise**
    - Add salt & pepper noise to a grayscale image.
+   #### Sample Output
+      <img src="./images/README/3a.png">
    
 2. **Spatial Filters**
    - Apply average and median spatial filters with a 5x5 mask.
