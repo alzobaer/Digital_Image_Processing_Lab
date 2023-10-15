@@ -44,20 +44,23 @@ This repository contains the code and documentation for the Digital Image Proces
 
 1. **Salt & Pepper Noise**
    - Add salt & pepper noise to a grayscale image.
+   - Apply average and median spatial filters with a 5x5 mask.
+   - Observe their performance for noise suppression in terms of PSNR.
    #### Sample Output
       <img src="./images/README/3a.png">
    
-2. **Spatial Filters**
-   - Apply average and median spatial filters with a 5x5 mask.
-   - Observe their performance for noise suppression in terms of PSNR.
 
 3. **Varying Filter Size**
    - Use different sizes of masks (3x3, 5x5, 7x7) with an average filter.
    - Observe their performance in terms of PSNR.
+   #### Sample Output
+      <img src="./images/README/3b.png">
 
 4. **Mean Filters**
    - Apply harmonic and geometric mean filters on the noisy image.
    - Compare their performance with PSNR.
+   #### Sample Output
+      <img src="./images/README/3c.png">
 
 ## Task 4: Gaussian Noise and Frequency Domain
 
