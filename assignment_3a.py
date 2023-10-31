@@ -42,14 +42,16 @@ def average_filter(image, kernel_size):
 
     # Define the padding size based on the kernel size
     padding = kernel_size // 2
+    mask = np.ones((kernel_size, kernel_size)) / (kernel_size**2)
 
     for i in range(padding, height - padding):
         for j in range(padding, width - padding):
             # Extract the neighborhood around the pixel
-            neighborhood = image[i - padding:i + padding + 1, j - padding:j + padding + 1]
+            neighborhood = image[i - padding: i + padding + 1, j - padding: j + padding + 1]
+            conv_res = neighborhood * mask  # convolution result
 
             # Calculate the average value of the neighborhood
-            average_value = int(neighborhood.mean())
+            average_value = np.sum(conv_res)
 
             # Set the filtered pixel value to the average
             filtered_image[i, j] = average_value

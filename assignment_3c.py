@@ -73,9 +73,13 @@ def apply_geometric_mean_filter(image, kernel_size):
 
 
 # Function to calculate PSNR between two images
-def calculate_psnr(original, noisy):
-    mse = np.mean((original - noisy) ** 2)
-    max_pixel_value = 255
+def calculate_psnr(original_img, noisy_image):
+    original_img = original_img.astype(np.float64)
+    noisy_image = noisy_image.astype(np.float64)
+    # calculate the mean square error between the original and noisy image
+    mse = np.mean((original_img - noisy_image) ** 2)
+    max_pixel_value = 255  # maximum possible pixel value
+    # Calculate PSNR = 10log((max^2)/mse)
     psnr = 20 * np.log10(max_pixel_value / np.sqrt(mse))
     return psnr
 
