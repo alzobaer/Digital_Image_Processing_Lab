@@ -45,14 +45,15 @@ def perform_dilation(image, structuring_element_size):
 
 
 # load an image
-image1 = cv2.imread('./images/opening.jpg', cv2.IMREAD_GRAYSCALE)
-image2 = cv2.imread('./images/dilation1.png', cv2.IMREAD_GRAYSCALE)
-structuring_element_size = 20  # Adjust the size as needed
+image1 = cv2.imread('./images/erosion.jpg', cv2.IMREAD_GRAYSCALE)
+image2 = cv2.imread('./images/dilation.png', cv2.IMREAD_GRAYSCALE)
+structuring_element_size1 = 15  # for morphological opening operation
+structuring_element_size2 = 10  # for morphological closing operation
 
 # Perform Erosion
-eroded_image = perform_erosion(image1, structuring_element_size)
+eroded_image = perform_erosion(image1, structuring_element_size1)
 # Perform Dilation
-dilated_image = perform_dilation(image2, structuring_element_size)
+dilated_image = perform_dilation(image2, structuring_element_size2)
 
 plt.figure(figsize=(12, 8))
 plt.subplot(2, 2, 1)

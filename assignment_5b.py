@@ -67,15 +67,16 @@ def perform_closing(image, structuring_element_size):
 
 
 # Example usage
-image1 = cv2.imread('./images/finger_print.png', cv2.IMREAD_GRAYSCALE)
-image2 = cv2.imread('./images/closing.png', cv2.IMREAD_GRAYSCALE)
-structuring_element_size = 10
+image1 = cv2.imread('./images/opening.png', cv2.IMREAD_GRAYSCALE)
+image2 = cv2.imread('./images/closing.jpg', cv2.IMREAD_GRAYSCALE)
+structuring_element_size1 = 10   # for morphological opening operation
+structuring_element_size2 = 5   # for morphological closing operation
 
 # Perform Opening
-opened_image = perform_opening(image1, structuring_element_size)
+opened_image = perform_opening(image1, structuring_element_size1)
 
 # Perform Closing
-closed_image = perform_closing(image2, structuring_element_size)
+closed_image = perform_closing(image2, structuring_element_size2)
 
 # Display the results
 plt.subplot(2, 2, 1)
@@ -83,7 +84,7 @@ pl.title("Original Image1")
 plt.imshow(image1, cmap='gray')
 
 plt.subplot(2, 2, 2)
-pl.title("Morphological Opening")
+pl.title("Morphological Opening (erosion+dilation)")
 plt.imshow(opened_image, cmap='gray')
 
 plt.subplot(2, 2, 3)
@@ -91,7 +92,7 @@ pl.title("Original Image2")
 plt.imshow(image2, cmap='gray')
 
 plt.subplot(2, 2, 4)
-pl.title("Morphological Closing")
+pl.title("Morphological Closing (dilation+erosion)")
 plt.imshow(closed_image, cmap='gray')
 
 plt.tight_layout()

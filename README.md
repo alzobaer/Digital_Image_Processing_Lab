@@ -82,11 +82,17 @@ This repository contains the code and documentation for the Digital Image Proces
 
 1. **Erosion and Dilation**
    - Perform erosion and dilation operations on a binary image using a structuring element.
+   #### Sample Output
+      <img src="./images/README/5a.png">
 
 2. **Opening and Closing**
    - Perform opening and closing operations on a binary image using a structuring element.
+   #### Sample Output
+      <img src="./images/README/5b.png">
 
 3. **Boundary Extraction**
    - Extract the boundary of the binary image using morphological operations.
+   #### Sample Output
+      <img src="./images/README/5c.png">
 
 Feel free to explore each section of this repository for code and additional documentation related to the tasks. Have fun with image processing!
