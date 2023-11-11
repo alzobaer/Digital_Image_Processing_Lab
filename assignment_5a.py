@@ -5,50 +5,36 @@ import pylab as pl
 
 
 def perform_erosion(image, structuring_element_size):
-    # Define the structuring element (kernel)
-    kernel = np.ones((structuring_element_size, structuring_element_size), np.uint8)
-
-    # Get image dimensions
     rows, cols = image.shape
-
-    # Create an empty array for the result
+    kernel = np.ones((structuring_element_size, structuring_element_size), np.uint8)
     eroded_image = np.zeros_like(image)
 
-    # Perform Erosion manually
     for i in range(structuring_element_size // 2, rows - structuring_element_size // 2):
         for j in range(structuring_element_size // 2, cols - structuring_element_size // 2):
-            region = image[i - structuring_element_size // 2:i + structuring_element_size // 2 + 1,
-                           j - structuring_element_size // 2:j + structuring_element_size // 2 + 1]
-            eroded_image[i, j] = np.min(region)
-
+            region = image[i - structuring_element_size // 2: i + structuring_element_size // 2 + 1,
+                           j - structuring_element_size // 2: j + structuring_element_size // 2 + 1]
+            eroded_image[i, j] = np.min(region * kernel)  # structuring element fits entirely within the image for each pixel.
     return eroded_image
 
 
 def perform_dilation(image, structuring_element_size):
-    # Define the structuring element (kernel)
-    kernel = np.ones((structuring_element_size, structuring_element_size), np.uint8)
-
-    # Get image dimensions
     rows, cols = image.shape
-
-    # Create an empty array for the result
+    kernel = np.ones((structuring_element_size, structuring_element_size), np.uint8)
     dilated_image = np.zeros_like(image)
 
-    # Perform Dilation manually
     for i in range(structuring_element_size // 2, rows - structuring_element_size // 2):
         for j in range(structuring_element_size // 2, cols - structuring_element_size // 2):
-            region = image[i - structuring_element_size // 2:i + structuring_element_size // 2 + 1,
-                           j - structuring_element_size // 2:j + structuring_element_size // 2 + 1]
-            dilated_image[i, j] = np.max(region)
-
+            region = image[i - structuring_element_size // 2: i + structuring_element_size // 2 + 1,
+                           j - structuring_element_size // 2: j + structuring_element_size // 2 + 1]
+            dilated_image[i, j] = np.max(region * kernel)
     return dilated_image
 
 
-# load an image
 image1 = cv2.imread('./images/erosion.jpg', cv2.IMREAD_GRAYSCALE)
 image2 = cv2.imread('./images/dilation.png', cv2.IMREAD_GRAYSCALE)
+
 structuring_element_size1 = 15  # for morphological opening operation
-structuring_element_size2 = 10  # for morphological closing operation
+structuring_element_size2 = 11  # for morphological closing operation
 
 # Perform Erosion
 eroded_image = perform_erosion(image1, structuring_element_size1)

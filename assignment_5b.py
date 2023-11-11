@@ -3,10 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pylab as pl
 
-
-
 def perform_erosion(image, structuring_element_size):
-    # Define the structuring element (kernel)
     kernel = np.ones((structuring_element_size, structuring_element_size), np.uint8)
 
     # Get image dimensions
@@ -78,6 +75,7 @@ opened_image = perform_opening(image1, structuring_element_size1)
 # Perform Closing
 closed_image = perform_closing(image2, structuring_element_size2)
 
+plt.figure(figsize=(12, 6))
 # Display the results
 plt.subplot(2, 2, 1)
 pl.title("Original Image1")

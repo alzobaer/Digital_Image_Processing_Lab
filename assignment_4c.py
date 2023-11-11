@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def add_gaussian_noise(image, mean = 0, stddev = 75):
     gaussian_noise = np.random.normal(mean, stddev, image.shape)
     noisy_image = gaussian_noise + image
@@ -56,24 +57,30 @@ noisy_image_filtered_by_ideal = ideal_high_pass_filter(noisy_image, cut_off_freq
 original_image_filtered_by_ideal = ideal_high_pass_filter(original_image, cut_off_frequency)
 
 plt.figure(figsize=(12, 6))
+
 plt.subplot(2, 3, 1)
 plt.imshow(original_image,  cmap='gray')
 plt.title('Original Image')
+
 plt.subplot(2, 3, 2)
 plt.imshow(original_image_filtered_by_gausssian,  cmap='gray')
-plt.title(f'Gaussian Filter of Original Image (D0={cut_off_frequency})')
+plt.title(f'Gaussian High Pass Filter (D0={cut_off_frequency})')
+
 plt.subplot(2, 3, 3)
 plt.imshow(original_image_filtered_by_ideal,  cmap='gray')
-plt.title(f'Ideal Filter of Original Image (D0={cut_off_frequency})')
+plt.title(f'Ideal High Pass Filter (D0={cut_off_frequency})')
+
 plt.subplot(2, 3, 4)
 plt.imshow(noisy_image, cmap='gray')
 plt.title('Gaussian Noisy Image')
+
 plt.subplot(2, 3, 5)
 plt.imshow(noisy_image_filtered_by_gausssian, cmap='gray')
-plt.title(f'Gaussian Filter of Noisy Image (D0={cut_off_frequency})')
+plt.title(f'Gaussian High Pass Filter (D0={cut_off_frequency})')
+
 plt.subplot(2, 3, 6)
 plt.imshow(noisy_image_filtered_by_ideal, cmap='gray')
-plt.title(f'Ideal Filter of Noisy Image (D0={cut_off_frequency})')
+plt.title(f'Ideal High Pass Filter (D0={cut_off_frequency})')
 
 plt.tight_layout()
 plt.show()

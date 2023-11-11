@@ -48,7 +48,7 @@ for i in range(number_of_filter):
     plt.subplot(dim, dim, i+2)
     plt.imshow(filtered_image, cmap='gray')
     plt.title(f'Ideal Low Pass Filter (D0 = {cut_off_frequency})')
-    cut_off_frequency = cut_off_frequency + 10
+    cut_off_frequency = cut_off_frequency + 5
 
 plt.tight_layout()
 plt.show()
