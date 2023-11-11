@@ -66,14 +66,20 @@ This repository contains the code and documentation for the Digital Image Proces
 
 1. **Gaussian Noise**
    - Add Gaussian noise to a grayscale image.
+   #### Sample Output
+      <img src="./images/README/4a.png">
 
 2. **Frequency Domain Filtering**
    - Apply a 4th order Butterworth and Gaussian low-pass filter.
    - Analyze their performance quantitatively.
+   #### Sample Output
+      <img src="./images/README/4b.png">
 
 3. **Ideal Low Pass Filter**
    - Observe the ringing effect of an ideal low-pass filter on the image.
    - Use different radii (D0) of the ideal low-pass filter and display their results.
+   #### Sample Output
+      <img src="./images/README/4c.png">
 
 4. **Edge Detection**
    - Perform edge detection on the noisy and clean images using ideal and Gaussian high-pass filters.
