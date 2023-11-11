@@ -41,9 +41,9 @@ eroded_image = perform_erosion(image1, structuring_element_size1)
 # Perform Dilation
 dilated_image = perform_dilation(image2, structuring_element_size2)
 
-plt.figure(figsize=(12, 8))
+plt.figure(figsize=(12, 6))
 plt.subplot(2, 2, 1)
-pl.title("Original Image1")
+pl.title("Original Binary Image1")
 plt.imshow(image1, cmap='gray')
 
 plt.subplot(2, 2, 2)
