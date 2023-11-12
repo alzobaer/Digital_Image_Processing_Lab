@@ -29,16 +29,15 @@ def apply_harmonic_mean_filter(image, kernel_size):
     # Calculate the kernel radius
     kernel_radius = kernel_size // 2
 
-    for i in range(height):
-        for j in range(width):
+    for i in range(kernel_radius, height - kernel_radius):
+        for j in range(kernel_radius, height - kernel_radius):
             values = []
 
             # Iterate over the neighborhood
-            for x in range(max(0, i - kernel_radius), min(height, i + kernel_radius + 1)):
-                for y in range(max(0, j - kernel_radius), min(width, j + kernel_radius + 1)):
+            for x in range(i - kernel_radius, i + kernel_radius + 1):
+                for y in range(j - kernel_radius, j + kernel_radius + 1):
                     if image[x, y] != 0:
                         values.append(1 / image[x, y])
-
             # Calculate the harmonic mean
             if values:
                 filtered_image[i, j] = int(len(values) / np.sum(values))
@@ -57,13 +56,11 @@ def apply_geometric_mean_filter(image, kernel_size):
     for i in range(kernel_radius, height - kernel_radius):
         for j in range(kernel_radius, width - kernel_radius):
             values = []
-
             # Iterate over the neighborhood
             for x in range(i - kernel_radius, i + kernel_radius + 1):
                 for y in range(j - kernel_radius, j + kernel_radius + 1):
                     if image[x, y] != 0:
                         values.append(image[x, y])
-
             # Calculate the geometric mean
             if values:
                 product = np.prod(values)
@@ -120,8 +117,7 @@ for i, kernel_size in enumerate(kernel_sizes):
     psnr_geometric = calculate_psnr(image, geometric_filtered_image)
 
     plt.subplot(2, 2, i + 2)
-    plt.title(
-        f'{kernel_size}x{kernel_size} Filters\nHarmonic PSNR = {psnr_harmonic:.2f} dB\nGeometric PSNR = {psnr_geometric:.2f} dB')
+    plt.title(f'{kernel_size}x{kernel_size} Filters\nHarmonic PSNR = {psnr_harmonic:.2f} dB\nGeometric PSNR = {psnr_geometric:.2f} dB')
     plt.imshow(harmonic_filtered_image, cmap='gray')
     plt.imshow(geometric_filtered_image, cmap='gray')
 
