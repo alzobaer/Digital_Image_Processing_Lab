@@ -55,7 +55,7 @@ pl.title("Orignal Image2")
 plt.imshow(image2, cmap='gray')
 
 plt.subplot(2, 2, 4)
-pl.title("Delation Operation")
+pl.title("Dilation Operation")
 plt.imshow(dilated_image, cmap='gray')
 
 plt.tight_layout()
