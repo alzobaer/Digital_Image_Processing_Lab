@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-img1 = cv2.imread('./images/img4.jpg', 0)   # take image of size 512x512
+img1 = cv2.imread('./images/img4.jpg', 0)   # take a grayscale image of size 512x512
 
 [m, n] = img1.shape     # m = height, n = width
 print('Image Shape:', m, n)
